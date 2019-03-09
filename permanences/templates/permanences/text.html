@@ -1,0 +1,29 @@
+{% load static %}
+{% load widget_tweaks %}
+<!doctype html>
+<html lang="fr">
+    <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static "permanences/bootstrap.min.css" %}">
+
+	<title>Tableau des permanences</title>
+    </head>
+    <body>
+	<div class="container">
+	    <form method="post" class="form">
+	      {% csrf_token %}
+	      {{ form }}
+	      <div class="mt-4">
+	      <button type="submit" class="btn btn-info">Enregistrer</button>
+	      <a class="btn btn-light" href="{% url 'index' %}" role="button">Annuler</a>
+	      </div>
+	    </form>
+	</div>
+	<script src="{% static "permanences/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "permanences/bootstrap.bundle.min.js" %}"></script>
+    </body>
+</html>
