@@ -17,7 +17,7 @@
 	    <table class="table table-striped">
 		<thead><tr>
 		    <th scope="col"></th>
-		    <th scope="col">Permanencier 1</th>
+		    <th scope="col"><div>Permanencier 1 </br>(responsable de l'ouverture)</div></th>
 		    <th scope="col">Permanencier 2</th>
 		    <th scope="col">Commentaire</th>
 		    <th scope="col"></th>
@@ -45,9 +45,9 @@
 		    {% endfor %}
 		</tbody>
 	    </table>
-	    <p><button class="btn btn-info" type="button" data-toggle="collapse"
-		       data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-		Voir plus de permanences </button></p>
+	    <p><button class="btn btn-info collapsed" type="button" data-toggle="collapse" data-target="#collapseExample">
+		Voir plus/moins de permanences
+	    </button></p>
 
 	    {% else %}
 	    <p>Pas de prochaine permanence enregistrée.</p>

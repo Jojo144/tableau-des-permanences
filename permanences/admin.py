@@ -1,4 +1,3 @@
-# from bootstrap3_datetime.widgets import DateTimePicker
 from django.conf.urls import url
 from django.shortcuts import render, redirect
 from django.contrib import admin
