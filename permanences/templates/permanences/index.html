@@ -1,0 +1,63 @@
+{% load static %}
+<!doctype html>
+<html lang="fr">
+    <head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static "permanences/bootstrap.min.css" %}">
+
+	<title>Tableau des permanences</title>
+    </head>
+    <body>
+	<div class="container">
+	    {% if activity_list %}
+	    <table class="table table-striped">
+		<thead><tr>
+		    <th scope="col"></th>
+		    <th scope="col">Permanencier 1</th>
+		    <th scope="col">Permanencier 2</th>
+		    <th scope="col">Commentaire</th>
+		    <th scope="col"></th>
+		</tr></thead>
+		<tbody>
+		    {% for activity in activity_list|slice:":6" %}
+		    <tr>
+			<th scope="row">{{ activity.description }} {{ activity.date|date:"D d M" }}</th>
+			<td>{{ activity.volunteer1 }}</td>
+			<td>{{ activity.volunteer2 }}</td>
+			<td>{{ activity.comment }}</td>
+			<td><a class="btn btn-success" href="{% url 'details' activity.id %}" role="button">S'inscrire</a></td>
+		    </tr>
+		    {% endfor %}
+		</tbody>
+		<tbody class="collapse" id="collapseExample">
+		    {% for activity in activity_list|slice:"6:20" %}
+		    <tr>
+			<th scope="row">{{ activity.description }} {{ activity.date|date:"D d M" }}</th>
+			<td>{{ activity.volunteer1 }}</td>
+			<td>{{ activity.volunteer2 }}</td>
+			<td>{{ activity.comment }}</td>
+			<td><a class="btn btn-success" href="{% url 'details' activity.id %}" role="button">S'inscrire</a></td>
+		    </tr>
+		    {% endfor %}
+		</tbody>
+	    </table>
+	    <p><button class="btn btn-info" type="button" data-toggle="collapse"
+		       data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+		Voir plus de permanences </button></p>
+
+	    {% else %}
+	    <p>Pas de prochaine permanence enregistrée.</p>
+	    {% endif %}
+	</div>
+	<div>
+	    Prochaine AG :
+	</div>
+	
+	<script src="{% static "permanences/jquery-3.2.1.min.js" %}"></script>
+	<script src="{% static "permanences/bootstrap.bundle.min.js" %}"></script>
+    </body>
+</html>
