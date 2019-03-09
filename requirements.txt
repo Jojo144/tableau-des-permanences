@@ -1,1 +1,2 @@
-widget_tweaks
+django
+django-widget-tweaks
