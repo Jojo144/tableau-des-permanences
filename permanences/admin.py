@@ -7,7 +7,7 @@ from django import forms
 
 from datetime import date, timedelta
 
-from .models import Activity
+from .models import Activity, IndexPageData
 
 
 class RecurringForm(forms.Form):
@@ -59,7 +59,9 @@ class ActivityAdmin(admin.ModelAdmin):
                       { 'opts': self.model._meta, 'form': form})
 
 
-    
+admin.site.register(IndexPageData)
+
+
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 

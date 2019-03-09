@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import Activity
-from .forms import ActivityForm
+from .models import Activity, IndexPageData
+from .forms import ActivityForm, TextForm
 
 from datetime import date
 
@@ -20,6 +20,19 @@ def details(request, pk):
     return render(request, 'permanences/details.html', {'form': form})
 
 
+def text(request):
+    txt = IndexPageData.objects.get()
+    if request.method == "POST":
+        form = TextForm(request.POST, instance=txt)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = TextForm(instance=txt)
+    return render(request, 'permanences/text.html', {'form': form})
+
+
 def index(request):
     activity_list = Activity.objects.filter(date__gte=date.today()).order_by('date')
-    return render(request, 'permanences/index.html', {'activity_list': activity_list})
+    txt = IndexPageData.objects.get()
+    return render(request, 'permanences/index.html', {'activity_list': activity_list, 'txt': txt.txt})

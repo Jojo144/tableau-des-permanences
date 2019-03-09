@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Activity
+from .models import Activity, IndexPageData
 
 class ActivityForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -13,3 +13,8 @@ class ActivityForm(forms.ModelForm):
         # widgets = {
         #     'date': DateInput(),
         # }
+
+class TextForm(forms.ModelForm):
+    class Meta:
+        model = IndexPageData
+        fields = '__all__'

@@ -52,9 +52,10 @@
 	    {% else %}
 	    <p>Pas de prochaine permanence enregistrée.</p>
 	    {% endif %}
-	</div>
-	<div>
-	    Prochaine AG :
+	    <p class="lead text-center mt-5">
+	      {{ txt | linebreaksbr }}
+	    </p>
+	    <p><a class="btn btn-light" href="{% url 'text' %}" role="button">Éditer ce texte</a></p>
 	</div>
 	
 	<script src="{% static "permanences/jquery-3.2.1.min.js" %}"></script>

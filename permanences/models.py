@@ -11,3 +11,11 @@ class Activity(models.Model):
     comment = models.CharField(verbose_name='Commentaire', max_length=1000, blank=True)
     def __str__(self):
         return self.description
+
+
+class IndexPageData(models.Model):
+    class Meta:
+        verbose_name = "Données pour la page d'accueil"
+    txt = models.TextField(verbose_name="", blank=True)
+    def __str__(self):
+        return self.txt
