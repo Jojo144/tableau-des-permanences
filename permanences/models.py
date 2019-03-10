@@ -13,7 +13,7 @@ class Activity(models.Model):
         return self.description
 
 
-class IndexPageData(models.Model):
+class HomePageData(models.Model):
     class Meta:
         verbose_name = "Données pour la page d'accueil"
     txt = models.TextField(verbose_name="", blank=True)

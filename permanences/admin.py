@@ -6,7 +6,7 @@ from django import forms
 
 from datetime import date, timedelta
 
-from .models import Activity, IndexPageData
+from .models import Activity, HomePageData
 
 
 class RecurringForm(forms.Form):
@@ -58,7 +58,7 @@ class ActivityAdmin(admin.ModelAdmin):
                       { 'opts': self.model._meta, 'form': form})
 
 
-admin.site.register(IndexPageData)
+admin.site.register(HomePageData)
 
 
 from django.contrib.auth.models import User
