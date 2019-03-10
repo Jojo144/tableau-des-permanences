@@ -110,7 +110,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 from . import settings_local
@@ -118,3 +117,4 @@ from . import settings_local
 SECRET_KEY = settings_local.SECRET_KEY
 DEBUG = settings_local.DEBUG
 ALLOWED_HOSTS = settings_local.ALLOWED_HOSTS
+STATIC_ROOT = settings_local.STATIC_ROOT
