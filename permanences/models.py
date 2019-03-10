@@ -20,4 +20,4 @@ class IndexPageData(models.Model):
     def __str__(self):
         return self.txt
 
-indexpagedata = IndexPageData("Cliquez en bas pour éditer ce texte ...")
+indexpagedata = IndexPageData.objects.create(txt="Cliquez en bas pour éditer ce texte ...")
