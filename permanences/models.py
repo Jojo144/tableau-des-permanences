@@ -19,5 +19,3 @@ class IndexPageData(models.Model):
     txt = models.TextField(verbose_name="", blank=True)
     def __str__(self):
         return self.txt
-
-indexpagedata = IndexPageData.objects.create(txt="Cliquez en bas pour éditer ce texte ...")

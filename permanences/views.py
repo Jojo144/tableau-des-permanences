@@ -2,11 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
 
-from .models import Activity, IndexPageData, indexpagedata
+from .models import Activity, IndexPageData
 from .forms import ActivityForm, TextForm
 
 from datetime import date
 
+
+indexpagedata = IndexPageData.objects.first()
+if indexpagedata is None:
+    indexpagedata=IndexPageData.objects.create(txt="Cliquez en bas pour éditer ce texte ...")
 
 def details(request, pk):
     activity = get_object_or_404(Activity, pk=pk)
