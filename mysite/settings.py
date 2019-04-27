@@ -111,10 +111,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SECRET_KEY = "blabla"
+DEBUG = True
+ALLOWED_HOSTS = ['localhost']
 
-from . import settings_local
-
-SECRET_KEY = settings_local.SECRET_KEY
-DEBUG = settings_local.DEBUG
-ALLOWED_HOSTS = settings_local.ALLOWED_HOSTS
-STATIC_ROOT = settings_local.STATIC_ROOT
+try:
+    from .settings_ynh import *
+except ModuleNotFoundError:
+    print('Warning: the file settings_ynh.py was not found, you are in debug mode.')
